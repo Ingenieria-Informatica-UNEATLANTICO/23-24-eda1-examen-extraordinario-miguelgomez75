@@ -67,13 +67,32 @@ class Hamburguesa {
     }
 
     public void retirar(){
-        System.out.println("¿En qué posición está el ingrediente que desea retirar? (Ten en cuenta la distribución actual de la hamburguesa)");
-        int posicion = new Scanner(System.in).nextInt();
+        int posicion = preguntarPosicion(2);
         lista.quitar(posicion);
     }
 
     public void recolocar(){
+        int posicion1 = preguntarPosicion(3);
+        int posicion2 = preguntarPosicion(3);
+        lista.reorganizar(posicion1, posicion2);
+    }
 
+    public int preguntarPosicion(int añaderetiraocambia){
+        int posicion;
+        switch (añaderetiraocambia) {
+            case 1:
+            System.out.println("¿En qué posición de la hamburguesa desea añadir el elemento?");
+            break;
+            case 2:
+            System.out.println("¿Qué elemento desea retirar de la hamburguesa?");
+            break;
+            case 3:
+            System.out.println("¿Qué posición desea intercambiar?");
+            break;
+        }
+        posicion = new Scanner(System.in).nextInt();
+        return posicion;
+        
     }
 
     public void crud() {
