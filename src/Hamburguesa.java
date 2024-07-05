@@ -33,32 +33,63 @@ class Hamburguesa {
     }
 
     public void añadir(){
+        int posicion;
         System.out.println("¿Qué ingrediente desea agregar?");
-        System.out.println("1. Queso");
-        System.out.println("2. Ketchup");
-        System.out.println("3. Mayonesa");
-        System.out.println("4. Huevo");
-        System.out.println("5. Más Carne");
-        System.out.println("6. Más Pan");
+        System.out.println("1. Queso Cheddar");
+        System.out.println("2. Queso Azul");
+        System.out.println("3. Ketchup");
+        System.out.println("4. Mayonesa");
+        System.out.println("5. Huevo");
+        System.out.println("6. Carne de Res");
+        System.out.println("7. Carne de Pollo");
+        System.out.println("8. Pan Brioche");
+        System.out.println("9. Pan Integral");
         int opcion = new Scanner(System.in).nextInt();
         switch (opcion) {
             case 1:
-            
+            posicion = preguntarPosicion(1);
+            lista.agregar(new Cheddar(), posicion);
+            System.out.println("Queso Cheddar añadido en la posición " + posicion);
             break;
             case 2:
-
+            posicion = preguntarPosicion(1);
+            lista.agregar(new Azul(), posicion);
+            System.out.println("Queso Azul añadido en la posición " + posicion);
             break;
             case 3:
-
+            posicion = preguntarPosicion(1);
+            lista.agregar(new Ketchup("poco"), posicion);
+            System.out.println("Ketchup añadido en la posición " + posicion);
             break;
             case 4:
-
+            posicion = preguntarPosicion(1);
+            lista.agregar(new Mayonesa("mucho"), posicion);
+            System.out.println("Mayonesa añadida en la posición " + posicion);
             break;
             case 5:
-
+            posicion = preguntarPosicion(1);
+            lista.agregar(new Huevo(), posicion);
+            System.out.println("Huevo añadido en la posición " + posicion);
             break;
             case 6:
-
+            posicion = preguntarPosicion(1);
+            lista.agregar(new Res("poco hecha"), posicion);
+            System.out.println("Carne de Res añadida en la posición " + posicion);
+            break;
+            case 7:
+            posicion = preguntarPosicion(1);
+            lista.agregar(new Pollo("poco hecho"), posicion);
+            System.out.println("Carne de Pollo añadida en la posición " + posicion);
+            break;
+            case 8:
+            posicion = preguntarPosicion(1);
+            lista.agregar(new Brioche(), posicion);
+            System.out.println("Pan Brioche añadido en la posición " + posicion);
+            break;
+            case 9:
+            posicion = preguntarPosicion(1);
+            lista.agregar(new Integral(), posicion);
+            System.out.println("Pan Integral añadido en la posición " + posicion);
             break;
             default:
             System.out.println("Opción no válida");
@@ -69,12 +100,14 @@ class Hamburguesa {
     public void retirar(){
         int posicion = preguntarPosicion(2);
         lista.quitar(posicion);
+        System.out.println("Elemento de la posición " + posicion + " retirado");
     }
 
     public void recolocar(){
         int posicion1 = preguntarPosicion(3);
         int posicion2 = preguntarPosicion(3);
         lista.reorganizar(posicion1, posicion2);
+        System.out.println("Elementos de las posiciones " + posicion1 + " y " + posicion2 + " intercambiados");
     }
 
     public int preguntarPosicion(int añaderetiraocambia){
@@ -99,7 +132,8 @@ class Hamburguesa {
         while(ultimosAjustes){
             System.out.println("Hamburguesa actual:");
             mostrar();
-            describir();
+            System.out.println("Ingredientes en orden: " + describir());
+            System.out.println("PD: El primer elemento tiene la posición 0");
             System.out.println("¿Desea agregar, quitar o reorganizar ingredientes?");
             System.out.println("1. Agregar");
             System.out.println("2. Quitar");
@@ -132,10 +166,6 @@ class Hamburguesa {
         Pan panInferior = new Brioche();
         Carne carne = new Res("poco hecha");
         Hamburguesa hamburguesa = new Hamburguesa(panSuperior, panInferior, carne);
-        hamburguesa.agregarExtra(new Cheddar(), 3);
-        hamburguesa.agregarExtra(new Ketchup("poco"), 4);
-        hamburguesa.agregarExtra(new Mayonesa("mucho"), 5);
-        hamburguesa.agregarExtra(new Huevo(), 6);
         hamburguesa.mostrar();
         System.out.println(hamburguesa.describir());
     }
