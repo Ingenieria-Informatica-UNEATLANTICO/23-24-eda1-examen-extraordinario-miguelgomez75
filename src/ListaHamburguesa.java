@@ -24,4 +24,17 @@ public class ListaHamburguesa {
         }
         numeroingredientes++;
     }
+
+    public void quitar(int posicion) {
+        if (posicion == 0) {
+            Cabeza = Cabeza.getNext();
+        } else {
+            Nodo actual = Cabeza;
+            for (int i = 0; i < posicion - 1; i++) {
+                actual = actual.getNext();
+            }
+            actual.setNext(actual.getNext().getNext());
+        }
+        numeroingredientes--;
+    }
 }
