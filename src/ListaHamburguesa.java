@@ -75,4 +75,42 @@ public class ListaHamburguesa {
         nodo1.setNext(nodo2.getNext());
         nodo2.setNext(temp);
     }
+
+    public void mostrar() {
+        Nodo actual = Cabeza;
+        while (actual != null) {
+            if (actual.getData() instanceof Pan) {
+                ((Pan) actual.getData()).mostrar();
+            } else if (actual.getData() instanceof Carne) {
+                ((Carne) actual.getData()).mostrar();
+            } else if (actual.getData() instanceof Extra) {
+                ((Extra) actual.getData()).mostrar();
+            }
+            actual = actual.getNext();
+        }
+    }
+
+    public String describir() {
+        StringBuilder descripcion = new StringBuilder();
+        Nodo actual = Cabeza;
+        while (actual != null) {
+            if (actual.getData() instanceof Pan) {
+                descripcion.append(((Pan) actual.getData()).describir());
+            } else if (actual.getData() instanceof Carne) {
+                descripcion.append(((Carne) actual.getData()).describir());
+            } else if (actual.getData() instanceof Extra) {
+                descripcion.append(((Extra) actual.getData()).describir());
+            }
+            if (actual.getNext() != null) {
+                descripcion.append(", ");
+            }
+            actual = actual.getNext();
+        }
+        descripcion.append("\n");
+        return descripcion.toString();
+    }
+
+    public int getNumeroingredientes() {
+        return numeroingredientes;
+    }
 }
