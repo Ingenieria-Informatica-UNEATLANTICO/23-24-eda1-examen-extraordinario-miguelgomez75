@@ -8,9 +8,31 @@ class Hamburguesa {
         this.lista.agregar(panSuperior, 0);
         this.lista.agregar(carne, 1);
         this.lista.agregar(panInferior, 2);
+        
+        
     }
 
-    
+    public void agregarExtra(Extra extra, int posicion) {
+        lista.agregar(extra, posicion);
+    }
+
+    public void quitarExtra(int posicion) {
+        lista.quitar(posicion);
+    }
+
+    public void reorganizar(int posicion1, int posicion2) {
+        lista.reorganizar(posicion1, posicion2);
+    }
+
+    public void mostrar() {
+        lista.mostrar();
+    }
+
+    public String describir() {
+        return lista.describir();
+    }
+
+
     
     /* 
     private Pan[] panes;
