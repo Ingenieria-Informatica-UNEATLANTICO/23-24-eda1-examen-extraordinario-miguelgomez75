@@ -33,11 +33,43 @@ class Hamburguesa {
     }
 
     public void añadir(){
+        System.out.println("¿Qué ingrediente desea agregar?");
+        System.out.println("1. Queso");
+        System.out.println("2. Ketchup");
+        System.out.println("3. Mayonesa");
+        System.out.println("4. Huevo");
+        System.out.println("5. Más Carne");
+        System.out.println("6. Más Pan");
+        int opcion = new Scanner(System.in).nextInt();
+        switch (opcion) {
+            case 1:
+            
+            break;
+            case 2:
 
+            break;
+            case 3:
+
+            break;
+            case 4:
+
+            break;
+            case 5:
+
+            break;
+            case 6:
+
+            break;
+            default:
+            System.out.println("Opción no válida");
+            break;
+        }
     }
 
     public void retirar(){
-
+        System.out.println("¿En qué posición está el ingrediente que desea retirar? (Ten en cuenta la distribución actual de la hamburguesa)");
+        int posicion = new Scanner(System.in).nextInt();
+        lista.quitar(posicion);
     }
 
     public void recolocar(){

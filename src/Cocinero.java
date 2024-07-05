@@ -3,7 +3,7 @@ package src;
 class Cocinero extends Empleado {
 
     public void prepararHamburguesa() {
-        final int NUMERO_EXTRAS = 4;
+        // final int NUMERO_EXTRAS = 4;
         Carne laCarne = new Res("poco hecha");
         hamburguesa = new Hamburguesa(new Brioche(), new Brioche(), laCarne);
         /*
