@@ -1,6 +1,18 @@
 package src;
 
 class Hamburguesa {
+    private ListaHamburguesa lista;
+
+    public Hamburguesa(Pan panSuperior, Pan panInferior, Carne carne) {
+        this.lista = new ListaHamburguesa();
+        this.lista.agregar(panSuperior, 0);
+        this.lista.agregar(carne, 1);
+        this.lista.agregar(panInferior, 2);
+    }
+
+    
+    
+    /* 
     private Pan[] panes;
     private Carne carne;
     private Extra[] extras;
@@ -36,4 +48,5 @@ class Hamburguesa {
         descripcion = descripcion + "\n";
         return descripcion;
     }
+        */
 }
