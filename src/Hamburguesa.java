@@ -1,15 +1,15 @@
 package src;
-
+import java.util.Scanner;
 class Hamburguesa {
     private ListaHamburguesa lista;
+    boolean ultimosAjustes = true;
 
     public Hamburguesa(Pan panSuperior, Pan panInferior, Carne carne) {
         this.lista = new ListaHamburguesa();
         this.lista.agregar(panSuperior, 0);
         this.lista.agregar(carne, 1);
         this.lista.agregar(panInferior, 2);
-        
-        
+        crud();
     }
 
     public void agregarExtra(Extra extra, int posicion) {
@@ -30,6 +30,63 @@ class Hamburguesa {
 
     public String describir() {
         return lista.describir();
+    }
+
+    public void añadir(){
+
+    }
+
+    public void retirar(){
+
+    }
+
+    public void recolocar(){
+
+    }
+
+    public void crud() {
+        while(ultimosAjustes){
+            System.out.println("Hamburguesa actual:");
+            mostrar();
+            describir();
+            System.out.println("¿Desea agregar, quitar o reorganizar ingredientes?");
+            System.out.println("1. Agregar");
+            System.out.println("2. Quitar");
+            System.out.println("3. Reorganizar");
+            System.out.println("4. Terminar");
+            int opcion = new Scanner(System.in).nextInt();
+            switch (opcion) {
+                case 1:
+                    añadir();
+                break;
+                case 2:
+                    retirar();
+                break;
+                case 3:
+                    recolocar();
+                break;
+                case 4:
+                    ultimosAjustes = false;
+                break;
+                default:
+                    System.out.println("Opción no válida");
+                    break;
+            }
+
+        }
+    }
+
+    static void main(String[] args) {
+        Pan panSuperior = new Brioche();
+        Pan panInferior = new Brioche();
+        Carne carne = new Res("poco hecha");
+        Hamburguesa hamburguesa = new Hamburguesa(panSuperior, panInferior, carne);
+        hamburguesa.agregarExtra(new Cheddar(), 3);
+        hamburguesa.agregarExtra(new Ketchup("poco"), 4);
+        hamburguesa.agregarExtra(new Mayonesa("mucho"), 5);
+        hamburguesa.agregarExtra(new Huevo(), 6);
+        hamburguesa.mostrar();
+        System.out.println(hamburguesa.describir());
     }
 
 
