@@ -34,6 +34,7 @@ class Hamburguesa {
 
     public void añadir(){
         int posicion;
+        String estado;
         System.out.println("¿Qué ingrediente desea agregar?");
         System.out.println("1. Queso Cheddar");
         System.out.println("2. Queso Azul");
@@ -57,13 +58,15 @@ class Hamburguesa {
             System.out.println("Queso Azul añadido en la posición " + posicion);
             break;
             case 3:
+            estado = preguntarEstadoIngrediente(opcion);
             posicion = preguntarPosicion(1);
-            lista.agregar(new Ketchup("poco"), posicion);
+            lista.agregar(new Ketchup(estado), posicion);
             System.out.println("Ketchup añadido en la posición " + posicion);
             break;
             case 4:
+            estado = preguntarEstadoIngrediente(opcion);
             posicion = preguntarPosicion(1);
-            lista.agregar(new Mayonesa("mucho"), posicion);
+            lista.agregar(new Mayonesa(estado), posicion);
             System.out.println("Mayonesa añadida en la posición " + posicion);
             break;
             case 5:
@@ -72,13 +75,15 @@ class Hamburguesa {
             System.out.println("Huevo añadido en la posición " + posicion);
             break;
             case 6:
+            estado = preguntarEstadoIngrediente(opcion);
             posicion = preguntarPosicion(1);
-            lista.agregar(new Res("poco hecha"), posicion);
+            lista.agregar(new Res(estado), posicion);
             System.out.println("Carne de Res añadida en la posición " + posicion);
             break;
             case 7:
+            estado = preguntarEstadoIngrediente(opcion);
             posicion = preguntarPosicion(1);
-            lista.agregar(new Pollo("poco hecho"), posicion);
+            lista.agregar(new Pollo(estado), posicion);
             System.out.println("Carne de Pollo añadida en la posición " + posicion);
             break;
             case 8:
@@ -126,6 +131,26 @@ class Hamburguesa {
         posicion = new Scanner(System.in).nextInt();
         return posicion;
         
+    }
+
+    public String preguntarEstadoIngrediente(int alimento){
+        String estado;
+        switch (alimento) {
+            case 3:
+            System.out.println("¿Cuánto ketchup desea?");
+            break;
+            case 4:
+            System.out.println("¿Cuánta mayonesa desea?");
+            break;
+            case 6:
+            System.out.println("¿Cómo desea la carne de Res?");
+            break;
+            case 7:
+            System.out.println("¿Cómo desea la carne de Pollo?");
+            break;
+        }
+        estado = new Scanner(System.in).nextLine();
+        return estado;
     }
 
     public void crud() {
